@@ -1,0 +1,13 @@
+﻿@model EmployeeDeptProject.Web.Models.Employee
+@{
+    ViewData["Title"] = "EmpDetails";
+}
+
+<h1>EmpDetails</h1>
+<h3>@Model.EmpId</h3>
+<h3>@Model.EmpName</h3>
+<p>@Model.EmpSalary</p>
+<p>@Model.DeptId</p>
+<a class="btn btn-outline-Danger" asp-controller="Employee" asp-action="Index"> Back </a>
+
+

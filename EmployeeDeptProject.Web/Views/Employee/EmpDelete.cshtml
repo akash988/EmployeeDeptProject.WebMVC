@@ -1,0 +1,38 @@
+﻿@model EmployeeDeptProject.Web.Models.Employee
+
+@{
+    ViewData["Title"] = "EmpDelete";
+}
+
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary"> Delete Employee</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All" class="text-bg-dark"></div>
+
+        <div class="mb-3">
+            <label asp-for="EmpName"></label>
+            <input asp-for="EmpName" disabled class="form-control" />
+
+            @*@Html.ValidationMessageFor(m=>m.CategoryName,"category not exceed than 20")*@
+        </div>
+        <div class="mb-3">
+            <label asp-for="EmpSalary"></label>
+            <input asp-for="EmpSalary" disabled class="form-control" />
+
+        </div>
+        @*<div class="mb-3">
+            <label asp-for="Departments.DeptId"></label>
+            <input  asp-for="Departments.DeptId" disabled class="form-control" />
+        </div>*@
+        <button type="submit" class="btn btn-primary" style="width:100px"> Delete </button>
+        <a asp-controller="Employee" asp-action="Index" class="btn btn-outline-dark"> Back </a>
+    </div>
+
+</form>
+
+
+

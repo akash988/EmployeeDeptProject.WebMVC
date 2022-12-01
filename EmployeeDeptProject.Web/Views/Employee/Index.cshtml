@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EmployeeDeptProject.Web.Models.Employee>
+@{
+    ViewData["Title"] = "EmpDetails";
+}
+
+<partial name="_AlertPartial" />
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-Primary">EmployeeList</h2>
+            <form class="d-flex">
+                <input class="form-control me-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+        @*<form class="d-flex">
+            <input class="form-control me-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>*@
+        <div class="col-6 row-15 text-end">
+            <a asp-controller="Employee" asp-action="EmpCreate" class="btn btn-primary"> Add Employee <i class="bi bi-plus-circle"></i></a>
+        </div>
+    </div>
+
+</div>
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                EmpId
+            </th>
+            <th>
+                EmployeeName
+            </th>
+            <th>
+                EmployeeSalary
+            </th>
+            <th>
+                DepartmentName
+            </th>
+
+            <th class="text-center">
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.EmpId</td>
+                <td><a asp-controller="Employee" asp-action="EmpDetails" asp-route-id="@c.EmpId">@c.EmpName</a></td>
+                
+                <td>@c.EmpSalary</td>
+                <td>@c.Departments.DeptName</td>
+                <td>
+                    <div class="text-center" role="group">
+                        <a asp-controller="Employee" asp-action="EmpEdit" asp-route-id="@c.EmpId" class="btn btn-primary"> Edit <i class="bi bi-pencil-square"></i></a>
+
+                        <a asp-controller="Employee" asp-action="EmpDelete" asp-route-id="@c.EmpId" class="btn btn-primary"> Delete <i class="bi bi-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
